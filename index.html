@@ -1,2 +1,41 @@
-<h1>TEST 1</h1>
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Comandos Git</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 init">
+          <h1>Inicializar repositorio desde local.</h1>
+          <p>Tenemos una carpeta con ejercicios en local y queremos subirlo a GitHub</p>
+          <ol>
+            <li>Nos vamos a la carptea dentro de la shell de github</li>
+            <li>Inicializamos el repositorio con: git init</li>
+            <li>Vamos a github.com y creamos un repositorio y copiamos la ruta ssh.</li>
+            <li>De vuelta a la consola ejecutamos el siguiente comando: git remote add origin {ruta_ssh}</li>
+            <li>Y por último submis los cambios a github</li>
+          </ol>
+        </div>
+        <div class="col-md-6 cloud">
+          <h1>Traernos un repositorio desde GitHub a local.</h1>
+          <ol>
+            <li>En github vamos a la página del repo y hacemos click en el boton verde "Clone or Download" y copiamos para clonarlo con SSH</li>
+            <li>Vamos al directorio donde queramos tener el proyecto y la shell de github ejecutamos: git clone {ruta_ssh}</li>
+          </ol>
+        </div>
+        <div class="col-md-6 col-md-offset-4">
+          <h1>Subir cambios a Github</h1>
+          <ol>
+            <li>git status</li>
+            <li>git add {nombre_archivo}</li>
+            <li>git commit -m "{mensaje}"</li>
+            <li>git push [origin] [nombre_rama]</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
