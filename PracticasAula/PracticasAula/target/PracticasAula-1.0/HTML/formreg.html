@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Formulario registro</title>
+  </head>
+  <body>
+    <h1>Formulario de registro</h1>
+    <div class="container">
+        <form action="\PracticasAula\nombre_servlets" method="POST">
+        <fieldset style="border:1px solid blue">
+            <legend style="color: blue">Datos personales</legend>
+          <label for="nombre">* Nombre: </label><input type="text" name="nombre" id="nombre">
+          <br><br>
+          <label for="apellidos">Apellidos: </label><input type="text" name="apellidos" id="apellidos">
+          <br><br>
+          <span>Sexo</span>
+            <input type="radio" name="sexo" value="H" checked>Hombre
+            <input type="radio" name="sexo" value="M">Mujer
+            <br><br>
+
+            <label>Fecha de Nacimiento: </label>
+
+            <input type="number" name="dia" step="1" min="1" max="31" value="1" size="2">/
+            <input type="number" name="mes" step="1" min="1" max="12" value="1" size="2">/
+            <input type="number" name="año" step="1" min="1950" max="2010" value="1950" size="4">
+
+        </fieldset >
+            <br>
+        <fieldset style="border:1px solid blue">
+          <legend style="color: blue">Datos de acceso</legend>
+          <label for="usuario">* Usuario: </label> <input type="text" name="usuario" id="usuario">
+          <label for="contraseña"> * Contraseña: </label> <input type="password" name="contraseña">
+        </fieldset>
+            <br>
+          <fieldset style="border:1px solid blue">
+              <legend style="color: blue"> Información General</legend>
+              <input type="checkbox" name="deporte" value="Deporte" />Deporte<br>
+              <input type="checkbox" name="lectura" value="Lectura"/>Lectura<br>
+              <input type="checkbox" name="cine" value="Cine"/>Cine<br>
+              <input type="checkbox" name="viajes" value="Viajes"/>Viajes<br>
+            <!--<select name="preferencias" id="preferencias" multiple size="4">
+              <option value="deporte">Deporte</option>
+              <option value="lectura">Lectura</option>
+              <option value="cine">Cine</option>
+              <option value="viajes" selected>Viajes</option>
+            </select> -->
+        </fieldset>
+        <p><input type="hidden" name="digito" value="23">
+        <br>
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Limpiar">
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Formulario complejo</title>
+    <link rel="stylesheet" href="../CSS/form.css"/>
+  </head>
+  <body>
+    <h1>Formulario complejo</h1>
+    <div class="container">
+        <form action="\PracticasAula\FormularioComplejo" method="POST">
+        <fieldset>
+            <h3> Datos Personales </h3>
+          
+          <label for="usuario">Usuario</label><input type="text" name="usuario" id="usuario">
+          <label for="password">Password</label><input type="password" name="password" id="password">
+          <p>Edad:</p>
+          <select name="edad" id="edad">
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22" selected>22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+          </select>
+        </fieldset>
+
+        <fieldset>
+          <h3>Otros datos</h3>
+            <p>Estado civil</p>
+
+            <input type="radio" name="estado_civil" value="soltero/a" checked>Soltero/a
+            <input type="radio" name="estado_civil" value="casado/a">Casado/a
+            <input type="radio" name="estado_civil" value="viudo/a">Viudo/a
+            <input type="radio" name="estado_civil" value="divorciado/a">Divorciado/a
+
+            <p>Aficiones (uno o varios, CTRL):</p>
+            <select name="aficiones" id="aficiones" multiple size="6">
+            <option value="deporte">deporte</option>
+            <option value="música">Música</option>
+            <option value="informatica">Informática</option>
+            <option value="viajes" selected>Viajes</option>
+            <option value="tiendas">Tiendas</option>
+            <option value="juegos">Juegos</option>
+          </select>
+
+          <p>Comentarios:</p>
+          <textarea name="comentarios" id="comentarios" cols="30" rows="10" placeholder="Pon tu comentario..."></textarea>
+        </fieldset>
+
+        <fieldset>
+          <h3>Medios Tecnológicos</h3>
+          <span>Dispones de internet?:</span>
+          <input type="radio" name="internet" value="si" checked>Si
+          <input type="radio" name="internet" value="no">No
+
+          <p>Sistema operativo (elige uno)</p>
+          <select name="so" id="so" size="4">
+            <option value="linux">Linux</option>
+            <option value="windows" selected>Windows</option>
+            <option value="macinthos">Macinthos</option>
+            <option value="solaris">Solaris</option>
+          </select>
+        </fieldset>
+        <p><input type="hidden" name="digito" value="23"> /*campo oculto
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Limpiar">
+      </form>
+    </div>
+  </body>
+</html>

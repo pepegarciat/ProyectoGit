@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="CSS/form.css"/>
+    </head>
+    <body>
+        <div id="cuadrado">
+            <form action="/PracticasAula/FormularioSimple" method="post">
+                <fieldset>
+                    <legend>Datos personales</legend>
+                    <table>
+                <tr>
+                    <td>
+                        <label>Usuario</label>
+                    </td>
+                    <td>
+                       <input type="text" name="usuario"> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>E-mail</label>
+                    </td>
+                    <td>
+                        <input type="text" name="email">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Marca la casilla</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="checking" value="Se ha marcado"><!-- si se pulsa el boton se enviara al servidor el valor indicado -->
+                    </td>
+                </tr>
+                </table>
+                <input type="submit" value="Enviar"> <!-- hemos obviado el nombre de este botón para que luego en el servidor no se procese pero deben tener nombre -->
+                </fieldset>
+                
+            </form>
+            
+        </div>
+    </body>
+</html>

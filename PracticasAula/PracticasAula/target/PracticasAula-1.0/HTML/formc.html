@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Formulario complejo</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="/PracticasAula/CSS/form.css"/>
+    </head>
+    <body>
+        <div id="centro">
+            <h1>Formulario Complejo</h1>
+            <form action="/PracticasAula/FormularioComplejo" method="post" name="formcomplejo">
+                <fieldset>
+                    <legend>Datos personales</legend>
+                    <table>
+                <tr>
+                    <td>
+                        <label>Usuario</label>
+                    </td>
+                    <td>
+                       <input type="text" name="usuario"> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Password</label>
+                    </td>
+                    <td>
+                        <input type="password" name="password">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Edad: </label>
+                    </td>
+                    <td>
+                        <select><!-- se crea una lista desplegable -->
+                           <optgroup>
+                            <option vale="20">20</option>
+                            <option vale="21">21</option>
+                            <option vale="22" selected="selected">22</option>
+                            <option vale="23">23</option>
+                            <option vale="24">24</option>
+                            <option vale="25">25</option>
+                           </optgroup> 
+                        </select>
+                    </td>
+                </tr>
+                </table>
+     
+                </fieldset>
+                
+                <fieldset>
+                    <legend>Otros Datos</legend>
+                    <table>
+                        <tr>
+                            <td>
+                                <label>Estado Civil</label>
+                            </td>
+                            <td>
+                                <input type="radio" id="estado1" name="estado" value="Soltero/a" checked="checked">
+                                <label for="estado1">Soltero/a</label>
+                            </td>
+                            <td>
+                                <input type="radio" id="estado2" name="estado" value="Casado/a">
+                                <label for="estado2">Casado/a</label>
+                            </td>
+                            <td>
+                                <input type="radio" id="estado3" name="estado" value="Viudo/a">
+                                <label for="estado3">Viudo/a</label>
+                            </td>
+                            <td>
+                                <input type="radio" id="estado4" name="estado" value="Divorciado/a">
+                                <label for="estado4">Divorciado/a</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Aficiones(uno o varios CTRL)</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select name="aficiones" size="6" multiple>
+                                    <option value="Deporte">Deporte</option>
+                                    <option value="Musica">Musica</option>
+                                    <option value="Informatica">Informatica</option>
+                                    <option selected="selected" value="Viajes">Viajes</option>
+                                    <option value="Tiendas">Tiendas</option>
+                                    <option value="Juegos">Juegos</option>
+                                </select>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>
+                                <label>Comentarios</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <textarea name="Comentarios" class="text" cols="30" rows="5">Pon tu comentario..</textarea>    
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <fieldset>
+                    <legend>Medios Tecnológicos</legend>
+                    <table>
+                        <tr>
+                            <td>
+                                <label>¿Dispones de internet?:</label>
+                            </td>
+                            <td>
+                                <input type="radio" id="disponemos1" name="internet" value="Si" checked="checked">
+                                <label for="disponemos1">Si</label>
+                            </td>
+                            <td>
+                                <input type="radio" id="disponemos2" name="internet" value="No">
+                                <label for="disponemos2">No</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Sistema Operativo (elige uno)</label>
+                            </td> 
+                        </tr>
+                        <tr>
+                            <td>
+                                <select name="SO" size="4">
+                                    <option value="Linux">Linux</option>
+                                    <option selected="selected" value="Windows">Windows</option>
+                                    <option value="Macintosh">Macintosh</option>
+                                    <option value="Solaris">Solaris</option>
+                                </select>
+                                <input type="hidden" name="Oculto" value="23" checked="checked">
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <br>
+                <input type="submit" value="Enviar"> <!-- hemos obviado el nombre de este botón para que luego en el servidor no se procese pero deben tener nombre -->
+                <input type="reset" value="Reset">
+            </form>
+        </div>
+    </body>
+</html>
