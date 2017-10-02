@@ -74,78 +74,86 @@ public class registro extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         /*processRequest(request, response);*/
-        
-        int[] diaMes= {31,28,31,30,31,30,31,31,30,31,30,31};
+        int dia=0; /* inicializamos las variables que vamos a usar*/
+        int mes=0;
+        int anio=0;
+        String nom="";
+        String apel="";
+       String sexo="";
+       String usuario="";
+       String pass="";
+       String deporte="";
+       String lectura="";
+       String cine="";
+       String viajes="";
+        int[] diaMes= {31,28,31,30,31,30,31,31,30,31,30,31}; /*inicializamos un array con los dias que contienen los meses*/
         response.setContentType("text/html;charset=UTF-8");    
-        String nom = request.getParameter("nombre");
-        String apel = request.getParameter("apellidos");
-        String sexo= request.getParameter("sexo");
+        if (request.getParameter("nombre")!=null){nom = request.getParameter("nombre");}  /* si los parámetros pasados son distintos de null*/
+        if (request.getParameter("apellidos")!=null){apel = request.getParameter("apellidos");}/* los pasamos a las variables*/
+        if (request.getParameter("sexo")!=null) {sexo= request.getParameter("sexo");}
         String dia1=request.getParameter("dia");
         String mes1=request.getParameter("mes");
         String anio1=request.getParameter("annio");
         System.out.println(dia1+" "+mes1+" "+anio1);
-        Integer dia= Integer.parseInt(request.getParameter("dia"));
+        dia= Integer.parseInt(dia1.trim()); /*no se por qué me da un nullpointer en este punto. Son los únicos parámetros que se pasan*/
         System.out.println(dia+"--");
-        Integer mes= Integer.parseInt(request.getParameter("mes"));
+        mes= Integer.parseInt(mes1.trim());
         System.out.println(mes+"--");
-        Integer anio= Integer.parseInt(request.getParameter("annio"));
+        anio= Integer.parseInt(anio1.trim());
         System.out.println(anio+"--");
-        String usuario=request.getParameter("usuario");
-        String pass=request.getParameter("contrasena");
-        String deporte=request.getParameter("deporte");
-        String lectura=request.getParameter("lectura");
-        String cine=request.getParameter("cine");
-        String viajes=request.getParameter("viajes");
+        if (request.getParameter("usuario")!=null){ usuario=request.getParameter("usuario");}
+        if (request.getParameter("pass")!=null){pass=request.getParameter("contrasena");}
+        if (request.getParameter("deporte")!=null){deporte=request.getParameter("deporte");}
+        if (request.getParameter("lectura")!=null){lectura=request.getParameter("lectura");}
+        if (request.getParameter("cine")!=null){ cine=request.getParameter("cine");}
+        if (request.getParameter("viajes")!=null){viajes=request.getParameter("viajes");}
         
         if (request.getMethod().equals("POST")){
            boolean error=false;
            boolean volver=false;
            boolean errorf=false;
-           if (dia>diaMes[mes-1]){
-                error=true;
+           if (dia>diaMes[mes-1]){ /* comprobamos que el día que se pasa no sea superior al max. dia del mes*/
+                error=true;        /*si lo es pone el error a true tanto de fecha como error general*/
                 errorf=true;
-                    if (mes==2 && anio%4==0){
-                        error=false;
+                    if (mes==2 && anio%4==0 && dia==29){ /* si el mes es febrero y el año es bisiesto comprueba que pueda ser día 29*/
+                        error=false;   /*cambia el estado de los errores*/
                         errorf=false;
                     }
             }
-        if (nom.length() ==0){ error=true; }
+        if (nom.length() ==0){ error=true; } /* si no hemos metido los datos obligatorios pone el error general a true*/
         if (usuario.length()==0) { error=true; }
         if (pass.length()==0) { error=true; }
         
-        if (error){
+        if (error){ /* si existe error pintamos el formulario de error*/
                
         try (PrintWriter out = response.getWriter()) {
             out.println("<!DOCTYPE html>\n" +
                         "<html>\n" +
                         "<body>\n" +
-                        "	<form method=\"POST\">\n" +
+                        "	<form action=\"\\PracticasAula\\registro\" method=\"POST\">\n" +
                         "       <h2>Errores en el registro</h2>\n" +
                         "       <input type=\"submit\" value=\"volver\"/>\n" +
                         "  </form>\n" +
-                        "  <div>\n" +
-                        "  	<p>prueba esto</p>\n" +
-                        "  </div>\n" +
                         "</body>\n" +
                         "</html>"
                     );
            
         }
-         volver=true;
+         volver=true; /* pone la variable volver a true para que la siguiente vez que ejecute el servlet entre por el else siguiente*/
         }
         else { 
-            if (volver==true){
-            volver=false;
+            if (volver==true){ /* si ya ha validado el formulario saca los problemas encontrados*/
+            volver=false;      /*ponemos volver a false en espera de una nueva validación y dibujamos el formulario*/
             try (PrintWriter out = response.getWriter()) {
             out.println("<!DOCTYPE html>\n"+
                         "<html>\n"+
                         "<body>\n"+
                         "<div>\n"+
                         "<h2>Problemas con el registro</h2\n");
-            if (nom.length() ==0){ out.println("<p>El campo nombre es obligatorio</p>");}; 
-            if (usuario.length()==0){out.println("<p>El campo usuario es obligatorio</p>");};
-            if (pass.length()==0) {out.println("<p>El campo contraseña es obligatorio</p>");};
-            if (errorf==true){out.println("<p>Fecha de nacimiento es incorrecta</p>");
+            if (nom.length() ==0){ out.println("<p>El campo nombre es obligatorio</p>");} 
+            if (usuario.length()==0){out.println("<p>El campo usuario es obligatorio</p>");}
+            if (pass.length()==0) {out.println("<p>El campo contraseña es obligatorio</p>");}
+            if (errorf==true){out.println("<p>Fecha de nacimiento es incorrecta</p>");}
             out.println("</div>\n+<br><br>");
             out.println(
             "<div class=\"container\">\n" +
@@ -200,9 +208,10 @@ public class registro extends HttpServlet {
             "      </form>\n" +
             "    ");
             }
-            else {
+            }
+            else { /* si no ha habido errores saca  el registro satisfactorio*/
                  String[] meses={"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"};
-            
+            try (PrintWriter out = response.getWriter()) {
                 out.println("<!DOCTYPE html>\n" +
                 "<html>\n" +
                 "  <head>\n" +
@@ -226,11 +235,12 @@ public class registro extends HttpServlet {
             }
             }
             
+            
                       
             }
         }
             
-        }
+        
             
         
     
